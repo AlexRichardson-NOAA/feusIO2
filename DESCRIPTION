@@ -13,11 +13,7 @@ Authors@R:
           comment = c(ORCID = "0000-0001-5757-4230"),
           email = "Emily.Markowitz@noaa.gov"))
 Maintainer: Alex Richardson <alex.richardson@noaa.gov>
-Description: This package consists of three functions that work together to process catch data into economic impacts. 
-Note that they require input files not included here - contact Alex Richardson <alex.richardson@noaa.gov> to
-request inputs. io_classifier() sorts catch data into species-level categories using Emily Markowitz's FishEconProdOutput
-package, io_calculator() applies classified catch data to a series of multipliers in order to obtain impacts, and
-io_cleaner() displays impacts data in a variety of formats.
+Description: This package consists of three functions that work together to process catch data into economic impacts. Note that they require input files not included here - contact Alex Richardson <alex.richardson@noaa.gov> to request inputs. io_classifier() sorts catch data into species-level categories using Emily Markowitz's FishEconProdOutput package, io_calculator() applies classified catch data to a series of multipliers in order to obtain impacts, and io_cleaner() displays impacts data in a variety of formats.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Imports:
