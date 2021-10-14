@@ -1,0 +1,36 @@
+Package: feusIO2
+Title: Runs a Fisheries Input/Output Model Based on Harvests and Implan Multipliers
+Version: 0.0.0.9000
+Authors@R: 
+    	c(person(given = "Alexander",
+          family = "Richardson",
+          role = c("aut","cre"),
+          email = "Alex.Richardson@noaa.gov",
+          comment = c(ORCID = "0000-0002-5492-7560")),
+	person(given = "Emily",
+          family = "Markowitz",
+          role = c("aut"),
+          comment = c(ORCID = "0000-0001-5757-4230"),
+          email = "Emily.Markowitz@noaa.gov"))
+Maintainer: Alex Richardson <alex.richardson@noaa.gov>
+Description: This package consists of three functions that work together to process catch data into economic impacts. 
+Note that they require input files not included here - contact Alex Richardson <alex.richardson@noaa.gov> to
+request inputs. io_classifier() sorts catch data into species-level categories using Emily Markowitz's FishEconProdOutput
+package, io_calculator() applies classified catch data to a series of multipliers in order to obtain impacts, and
+io_cleaner() displays impacts data in a variety of formats.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Imports:
+  dplyr,
+	magrittr,
+	stringr,
+	taxize,
+	FishEconProdOutput
+Suggests: 
+  knitr,
+	xlsx
+VignetteBuilder: knitrgit remote add origin https://github.com/hansenjohnson/website.git
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
