@@ -80,7 +80,6 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::arrange(`Economic Category`, Impact_Type)
 
     impacts_national_seafood = impacts_national %>%
-      dplyr::filter(`Economic Category` != "Brokers/importers") %>%
       dplyr::ungroup() %>%
       dplyr::group_by(Impact_Type) %>%
       dplyr::summarize(
@@ -121,7 +120,6 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::arrange(`Economic Category`, Impact_Type)
 
     impacts_state_sum_seafood = impacts_state_sum %>%
-      dplyr::filter(`Economic Category` != "Brokers/importers") %>%
       dplyr::ungroup() %>%
       dplyr::group_by(Impact_Type) %>%
       dplyr::summarize(
@@ -193,7 +191,6 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
           dplyr::arrange(`Economic Category`, Impact_Type)
 
         impacts_sum_seafood = impacts_sum %>%
-          dplyr::filter(`Economic Category` != "Brokers/importers") %>%
           dplyr::ungroup() %>%
           dplyr::group_by(Impact_Type) %>%
           dplyr::summarize(
