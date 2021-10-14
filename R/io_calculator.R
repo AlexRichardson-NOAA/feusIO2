@@ -72,6 +72,8 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       dplyr::mutate(imports = imports * value) %>%
       dplyr::select(fips, `Economic Category` = name, base_catch = imports) %>%
       dplyr::mutate(`Species Category` = "Imports")
+  } else {
+
   }
 
   if(manual == TRUE){
@@ -497,6 +499,8 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
         E_Induced_Impact,
         E_Total
       )
+  } else {
+    broker_output = NULL
   }
 
 
