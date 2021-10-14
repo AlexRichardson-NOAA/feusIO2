@@ -80,6 +80,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::arrange(`Economic Category`, Impact_Type)
 
     impacts_national_seafood = impacts_national %>%
+      dplyr::bind_rows(impacts_national_imports) %>%
       dplyr::ungroup() %>%
       dplyr::group_by(Impact_Type) %>%
       dplyr::summarize(
@@ -120,6 +121,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::arrange(`Economic Category`, Impact_Type)
 
     impacts_state_sum_seafood = impacts_state_sum %>%
+      dplyr::bind_rows(impacts_state_sum_imports) %>%
       dplyr::ungroup() %>%
       dplyr::group_by(Impact_Type) %>%
       dplyr::summarize(
@@ -191,6 +193,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
           dplyr::arrange(`Economic Category`, Impact_Type)
 
         impacts_sum_seafood = impacts_sum %>%
+          dplyr::bind_rows(impacts_sum_imports) %>%
           dplyr::ungroup() %>%
           dplyr::group_by(Impact_Type) %>%
           dplyr::summarize(
@@ -308,6 +311,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
                     Total = Total/1000)
 
     impacts.allsectors.states = impacts.states %>%
+      dplyr::bind_rows(impacts.imports.states) %>%
       dplyr::ungroup() %>%
       dplyr::group_by(Sector, Imports, Year, State1) %>%
       dplyr::summarize(Direct = sum(Direct),
@@ -317,6 +321,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::mutate(Metric = "Total Impacts")
 
     impacts.allsectors.us = impacts.us %>%
+      dplyr::bind_rows(impacts.imports.us) %>%
       dplyr::ungroup() %>%
       dplyr::group_by(Sector, Imports, Year) %>%
       dplyr::summarize(Direct = sum(Direct),
