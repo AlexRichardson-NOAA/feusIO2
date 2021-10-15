@@ -118,10 +118,10 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       O_Indirect_Impact = `Output Indirect Impacts` * `RPC RPC` * base_catch,
       O_Induced_Impact = `Output Induced Impacts` * `RPC RPC` * base_catch,
       O_Total = O_Direct_Impact + O_Indirect_Impact + O_Induced_Impact,
-      E_Direct_Impact = `Employment Direct Impacts` * base_catch * deflator / 1000,
+      E_Direct_Impact = `Employment Direct Impacts` * base_catch * deflator / 1000000,
       E_Indirect_Impact = `Employment Indirect Impacts` * `RPC RPC` *
-        base_catch * deflator / 1000,
-      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * base_catch * deflator / 1000,
+        base_catch * deflator / 1000000,
+      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * base_catch * deflator / 1000000,
       E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
     )
 
@@ -187,10 +187,10 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       O_Indirect_Impact = `Output Indirect Impacts` * `RPC RPC` * processor_markup,
       O_Induced_Impact = `Output Induced Impacts` * `RPC RPC` * processor_markup,
       O_Total = O_Direct_Impact + O_Indirect_Impact + O_Induced_Impact,
-      E_Direct_Impact = `Employment Direct Impacts` * processor_markup * deflator / 1000,
+      E_Direct_Impact = `Employment Direct Impacts` * processor_markup * deflator / 1000000,
       E_Indirect_Impact = `Employment Indirect Impacts` * `RPC RPC` *
-        processor_markup * deflator / 1000,
-      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * processor_markup * deflator / 1000,
+        processor_markup * deflator / 1000000,
+      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * processor_markup * deflator / 1000000,
       E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
     )
 
@@ -259,10 +259,10 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       O_Indirect_Impact = `Output Indirect Impacts` * `RPC RPC` * wholesaler_markup,
       O_Induced_Impact = `Output Induced Impacts` * `RPC RPC` * wholesaler_markup,
       O_Total = O_Direct_Impact + O_Indirect_Impact + O_Induced_Impact,
-      E_Direct_Impact = `Employment Direct Impacts` * wholesaler_markup * deflator / 1000,
+      E_Direct_Impact = `Employment Direct Impacts` * wholesaler_markup * deflator / 1000000,
       E_Indirect_Impact = `Employment Indirect Impacts` * `RPC RPC` *
-        wholesaler_markup * deflator / 1000,
-      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * wholesaler_markup * deflator / 1000,
+        wholesaler_markup * deflator / 1000000,
+      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * wholesaler_markup * deflator / 1000000,
       E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
     )
 
@@ -337,10 +337,10 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       O_Indirect_Impact = `Output Indirect Impacts` * `RPC RPC` * grocer_markup,
       O_Induced_Impact = `Output Induced Impacts` * `RPC RPC` * grocer_markup,
       O_Total = O_Direct_Impact + O_Indirect_Impact + O_Induced_Impact,
-      E_Direct_Impact = `Employment Direct Impacts` * grocer_markup * deflator / 1000,
+      E_Direct_Impact = `Employment Direct Impacts` * grocer_markup * deflator / 1000000,
       E_Indirect_Impact = `Employment Indirect Impacts` * `RPC RPC` *
-        grocer_markup * deflator / 1000,
-      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * grocer_markup * deflator / 1000,
+        grocer_markup * deflator / 1000000,
+      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * grocer_markup * deflator / 1000000,
       E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
     )
 
@@ -415,10 +415,10 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       O_Indirect_Impact = `Output Indirect Impacts` * `RPC RPC` * restaurant_markup,
       O_Induced_Impact = `Output Induced Impacts` * `RPC RPC` * restaurant_markup,
       O_Total = O_Direct_Impact + O_Indirect_Impact + O_Induced_Impact,
-      E_Direct_Impact = `Employment Direct Impacts` * restaurant_markup * deflator / 1000,
+      E_Direct_Impact = `Employment Direct Impacts` * restaurant_markup * deflator / 1000000,
       E_Indirect_Impact = `Employment Indirect Impacts` * `RPC RPC` *
-        restaurant_markup * deflator / 1000,
-      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * restaurant_markup * deflator / 1000,
+        restaurant_markup * deflator / 1000000,
+      E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * restaurant_markup * deflator / 1000000,
       E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
     )
 
@@ -469,10 +469,10 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
         O_Indirect_Impact = `Output Indirect Impacts` * `RPC RPC` * broker_markup,
         O_Induced_Impact = `Output Induced Impacts` * `RPC RPC` * broker_markup,
         O_Total = O_Direct_Impact + O_Indirect_Impact + O_Induced_Impact,
-        E_Direct_Impact = `Employment Direct Impacts` * broker_markup * deflator / 1000,
+        E_Direct_Impact = `Employment Direct Impacts` * broker_markup * deflator / 1000000,
         E_Indirect_Impact = `Employment Indirect Impacts` * `RPC RPC` *
-          broker_markup * deflator / 1000,
-        E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * broker_markup * deflator / 1000,
+          broker_markup * deflator / 1000000,
+        E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * broker_markup * deflator / 1000000,
         E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
       ) %>%
       dplyr::rename(state_abbr = `state_abbr...1`) %>%
