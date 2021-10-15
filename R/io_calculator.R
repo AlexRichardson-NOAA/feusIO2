@@ -451,7 +451,7 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
   if(import_numbers!=F) {
     broker_output = import_numbers %>%
       dplyr::bind_cols(multipliers_brokers) %>%
-      dplyr::mutate(broker_markup = (imports/1000) * 118.6554) %>%
+      dplyr::mutate(broker_markup = (imports) * 1.186554) %>%
       dplyr::mutate(
         PI_Direct_Impact = `Personal Income Direct Impacts` * broker_markup,
         PI_Indirect_Impact = `Personal Income Indirect Impacts` * `RPC RPC` *
