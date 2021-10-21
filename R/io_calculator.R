@@ -475,7 +475,7 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
           broker_markup * deflator / 1000000,
         E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * broker_markup * deflator / 1000000,
         E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
-      )
+      ) %>%
     dplyr::select(
       fips,
       `Economic Category`,
@@ -497,7 +497,7 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       E_Indirect_Impact,
       E_Induced_Impact,
       E_Total
-    )
+    ) %>% filter(!is.na(fips))
   } else {
     broker_output = NULL
   }
