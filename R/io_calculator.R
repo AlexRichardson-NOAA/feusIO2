@@ -92,7 +92,8 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
 
   multipliers_restaurants = multipliers %>% dplyr::filter(`Economic Category` == "Restaurants")
 
-  multipliers_brokers = multipliers %>% dplyr::filter(state_name == "All jurisdictions")
+  multipliers_brokers = multipliers %>% dplyr::filter(state_name == "All jurisdictions") %>%
+    dplyr::select(-state_abbr, -fips)
 
   ##############
   # Harvesters #
@@ -474,31 +475,29 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
           broker_markup * deflator / 1000000,
         E_Induced_Impact = `Employment Induced Impacts` * `RPC RPC` * broker_markup * deflator / 1000000,
         E_Total = E_Direct_Impact + E_Indirect_Impact + E_Induced_Impact
-      ) %>%
-      dplyr::rename(state_abbr = `state_abbr...1`) %>%
-      dplyr::select(-`state_abbr...23`) %>%
-      dplyr::select(
-        fips,
-        `Economic Category`,
-        `Species Category`,
-        spec_no,
-        PI_Direct_Impact,
-        PI_Indirect_Impact,
-        PI_Induced_Impact,
-        PI_Total,
-        TV_Direct_Impact,
-        TV_Indirect_Impact,
-        TV_Induced_Impact,
-        TV_Total,
-        O_Direct_Impact,
-        O_Indirect_Impact,
-        O_Induced_Impact,
-        O_Total,
-        E_Direct_Impact,
-        E_Indirect_Impact,
-        E_Induced_Impact,
-        E_Total
-      )
+      ) %>% view()
+    dplyr::select(
+      fips,
+      `Economic Category`,
+      `Species Category`,
+      spec_no,
+      PI_Direct_Impact,
+      PI_Indirect_Impact,
+      PI_Induced_Impact,
+      PI_Total,
+      TV_Direct_Impact,
+      TV_Indirect_Impact,
+      TV_Induced_Impact,
+      TV_Total,
+      O_Direct_Impact,
+      O_Indirect_Impact,
+      O_Induced_Impact,
+      O_Total,
+      E_Direct_Impact,
+      E_Indirect_Impact,
+      E_Induced_Impact,
+      E_Total
+    )
   } else {
     broker_output = NULL
   }
