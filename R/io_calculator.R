@@ -497,7 +497,7 @@ io_calculator <- function(catch, import_numbers = F, implan_multipliers = multip
       E_Indirect_Impact,
       E_Induced_Impact,
       E_Total
-    ) %>% filter(!is.na(fips))
+    ) %>% dplyr::filter(!is.na(fips))
   } else {
     broker_output = NULL
   }

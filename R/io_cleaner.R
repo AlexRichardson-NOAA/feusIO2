@@ -9,7 +9,7 @@
 #' @param maxyr The catch year - only used for FEUS.
 #' @importFrom magrittr %>%
 #' @export
-io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr = 2018) {
+io_cleaner <- function(impact, format = "FEUS", xlsx = F, fp = fips, maxyr = 2018) {
   output = c()
   fips = fp
 
@@ -252,11 +252,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::ungroup() %>%
       dplyr::select(-fips) %>%
       dplyr::rename(Metric = `Economic Category`, Sector = Impact_Type, State1 = state_abbr) %>%
-      dplyr::mutate(Year = maxyr,
-                    Direct = Direct/1000,
-                    Indirect = Indirect/1000,
-                    Induced = Induced/1000,
-                    Total = Total/1000) %>%
+      dplyr::mutate(Year = maxyr) %>%
       dplyr::mutate(Metric = "Importers")
 
     impacts.imports.us <- impacts %>%
@@ -266,11 +262,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::ungroup() %>%
       dplyr::select(-fips) %>%
       dplyr::rename(Metric = `Economic Category`, Sector = Impact_Type, State1 = state_abbr) %>%
-      dplyr::mutate(Year = maxyr,
-                    Direct = Direct/1000,
-                    Indirect = Indirect/1000,
-                    Induced = Induced/1000,
-                    Total = Total/1000) %>%
+      dplyr::mutate(Year = maxyr) %>%
       dplyr::mutate(Metric = "Importers")
 
 
@@ -286,11 +278,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::ungroup() %>%
       dplyr::select(-fips) %>%
       dplyr::rename(Metric = `Economic Category`, Sector = Impact_Type, State1 = state_abbr) %>%
-      dplyr::mutate(Year = maxyr,
-                    Direct = Direct/1000,
-                    Indirect = Indirect/1000,
-                    Induced = Induced/1000,
-                    Total = Total/1000)
+      dplyr::mutate(Year = maxyr)
 
     impacts.us = impacts %>%
       dplyr::filter(`Economic Category` != "Brokers/importers") %>%
@@ -304,11 +292,7 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
       dplyr::ungroup() %>%
       dplyr::select(-fips) %>%
       dplyr::rename(Metric = `Economic Category`, Sector = Impact_Type, State1 = state_abbr) %>%
-      dplyr::mutate(Year = maxyr,
-                    Direct = Direct/1000,
-                    Indirect = Indirect/1000,
-                    Induced = Induced/1000,
-                    Total = Total/1000)
+      dplyr::mutate(Year = maxyr)
 
     impacts.allsectors.states = impacts.states %>%
       dplyr::bind_rows(impacts.imports.states) %>%
@@ -332,6 +316,12 @@ io_cleaner <- function(impact, format = "national", xlsx = F, fp = fips, maxyr =
 
     output = dplyr::bind_rows(impacts.states, impacts.us, impacts.imports.states, impacts.imports.us, impacts.allsectors.states, impacts.allsectors.us) %>%
       dplyr::mutate(Index_Local = row_number())
+
+    output$Direct[output$Sector!="Employment Impacts"]<-output$Direct/1000
+    output$Indirect[output$Sector!="Employment Impacts"]<-output$Indirect/1000
+    output$Induced[output$Sector!="Employment Impacts"]<-output$Induced/1000
+    output$Total[output$Sector!="Employment Impacts"]<-output$Total/1000
+
   }
 
   if(xlsx == F){
