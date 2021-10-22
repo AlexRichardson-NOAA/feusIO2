@@ -317,10 +317,10 @@ io_cleaner <- function(impact, format = "FEUS", xlsx = F, fp = fips, maxyr = 201
     output = dplyr::bind_rows(impacts.states, impacts.us, impacts.imports.states, impacts.imports.us, impacts.allsectors.states, impacts.allsectors.us) %>%
       dplyr::mutate(Index_Local = row_number())
 
-    output$Direct[output$Sector!="Employment Impacts"]<-output$Direct/1000
-    output$Indirect[output$Sector!="Employment Impacts"]<-output$Indirect/1000
-    output$Induced[output$Sector!="Employment Impacts"]<-output$Induced/1000
-    output$Total[output$Sector!="Employment Impacts"]<-output$Total/1000
+    output$Direct[output$Sector!="Employment Impacts"]<-output$Direct[output$Sector!="Employment Impacts"]/1000
+    output$Indirect[output$Sector!="Employment Impacts"]<-output$Indirect[output$Sector!="Employment Impacts"]/1000
+    output$Induced[output$Sector!="Employment Impacts"]<- output$Induced[output$Sector!="Employment Impacts"]/1000
+    output$Total[output$Sector!="Employment Impacts"]<-output$Total[output$Sector!="Employment Impacts"]/1000
 
   }
 
